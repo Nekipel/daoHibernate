@@ -6,29 +6,9 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.Properties;
 
 public class Util {
-    static Connection dbConnection;
-
-    public static Connection getDbConnection() throws ClassNotFoundException, SQLException {
-        String dbHost = "localhost";
-        String dbPort = "3306";
-        String dbName = "data";
-        String connectionString = "jdbc:mysql://" + dbHost + ":" + dbPort + "/" + dbName;
-
-        Class.forName("com.mysql.cj.jdbc.Driver");
-
-        String dbUser = "root";
-        String dbPass = "Qwedcxzas123";
-        dbConnection = DriverManager.getConnection(connectionString, dbUser, dbPass);
-
-        return dbConnection;
-    }
 
     private static SessionFactory sessionFactory;
     public static SessionFactory getConnectionHibernate() {
